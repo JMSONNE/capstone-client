@@ -3,7 +3,11 @@ import { useEffect, useState } from 'react'
 
 export const Home = () => {
     return (
-        <div>Home</div>
+        <>
+
+            <h1>Home page</h1>
+
+        </>
     )
 }
 
