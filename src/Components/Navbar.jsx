@@ -24,7 +24,7 @@ const Navbar = () => {
         navigate('/cart');
     }
     const handleLogoProfileClick = () => {
-        navigate('/');
+        navigate('/profile');
     }
 
     return (
