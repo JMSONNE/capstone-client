@@ -11,6 +11,7 @@ import { Margin } from '@mui/icons-material';
 import { Icon } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Grid from '@mui/material/Grid';
+import Avatar from '@mui/material/Avatar';
 
 const Navbar = () => {
 
@@ -21,6 +22,9 @@ const Navbar = () => {
     }
     const handleLogoCartClick = () => {
         navigate('/cart');
+    }
+    const handleLogoProfileClick = () => {
+        navigate('/');
     }
 
     return (
@@ -37,21 +41,30 @@ const Navbar = () => {
                             >
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="Javascripts Coffee Logo" className='logo' />
                             </IconButton>
-                            <Typography variant='h6' className='companyNameBar' mt={3} noWrap="false">
-                                JavaScripts Coffee Co.
-                            </Typography>
+                            <IconButton disableRipple='true' onClick={handleLogoClick}>
+                                <Typography variant='h6' className='companyNameBar' mt={3} noWrap="false" sx={{ color: 'white' }}>
+                                    JavaScripts Coffee Co.
+                                </Typography>
+                            </IconButton>
                         </Toolbar>
                     </Grid>
                     <Grid item xs={2} alignItems="center">
-                        <Toolbar sx={{ justifyContent: "end" }}>
+                        <Toolbar sx={{ justifyContent: "space-evenly" }}>
                             <IconButton
-                                size='large'
+                                size='medium'
+                                edge='start'
+                                onClick={handleLogoProfileClick}
+                            >
+                                <Avatar src="/broken-image.jpg" />
+                            </IconButton>
+                            <IconButton
+                                size='medium'
                                 edge='end'
-                                disableRipple='true'
                                 onClick={handleLogoCartClick}
                             >
                                 <ShoppingCartIcon sx={{ color: 'white' }} fontSize='large' />
                             </IconButton>
+
                         </Toolbar>
                     </Grid>
                 </Grid>
