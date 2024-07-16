@@ -20,7 +20,7 @@ const Navbar = () => {
         navigate('/');
     }
     const handleLogoCartClick = () => {
-        navigate('/');
+        navigate('/cart');
     }
 
     return (
