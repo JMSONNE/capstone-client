@@ -2,3 +2,11 @@
   size: 100%;
   margin: 0;
 }
+
+.logo {
+  height: 4rem;
+}
+
+.companyNameBar {
+  margin-top: 2rem;
+}
