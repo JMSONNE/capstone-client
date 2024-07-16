@@ -6,10 +6,12 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import { useNavigate } from 'react-router-dom'
+import '../index.css';
+import { Margin } from '@mui/icons-material';
 
 const Navbar = () => {
 
-    // set up navigation
+    // set up navigation for logo
     const navigate = useNavigate();
     const handleLogoClick = () => {
         navigate('/');
@@ -25,10 +27,13 @@ const Navbar = () => {
                         disableRipple='true'
                         onClick={handleLogoClick}
                     >
-                        <img src="" alt="Javascripts Coffee Logo" className='logo' />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="Javascripts Coffee Logo" className='logo' />
                     </IconButton>
+                    <Typography variant='h6' className='companyNameBar' mt={3}>
+                        JavaScripts Coffee Co.
+                    </Typography>
                 </Toolbar>
-            </AppBar>
+            </AppBar >
         </>
     )
 }
