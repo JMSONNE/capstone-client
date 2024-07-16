@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import Home from '../Home'
 import React from 'react'
 import Cart from '../Cart'
+import { Profile } from '../Profile'
 
 
 const Router = () => {
@@ -11,6 +12,7 @@ const Router = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/profile" element={<Profile />} />
             </Routes>
 
         </>
