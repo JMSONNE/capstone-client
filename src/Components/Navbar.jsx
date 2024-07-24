@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect } from 'react'
+import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -15,6 +16,9 @@ import Avatar from '@mui/material/Avatar';
 
 const Navbar = () => {
 
+    // handles logic for login state
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+
     // set up navigation for logo
     const navigate = useNavigate();
     const handleLogoClick = () => {
@@ -24,12 +28,17 @@ const Navbar = () => {
         navigate('/cart');
     }
     const handleLogoProfileClick = () => {
-        navigate('/profile');
+        if (isLoggedIn) {
+            navigate('/profile');
+        } else {
+            navigate('/login');
+        }
+
     }
 
     return (
         <>
-            <AppBar position='static' color='success'>
+            <AppBar position='static' color='success' sx={{ mb: 3 }}>
                 <Grid container spacing={2} justifyContent="space-between" alignItems="center">
                     <Grid item xs={10}>
                         <Toolbar>
@@ -42,7 +51,7 @@ const Navbar = () => {
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="Javascripts Coffee Logo" className='logo' />
                             </IconButton>
                             <IconButton disableRipple='true' onClick={handleLogoClick}>
-                                <Typography variant='h6' className='companyNameBar' mt={3} noWrap="false" sx={{ color: 'white' }}>
+                                <Typography variant='h6' className='companyNameBar' mt={3} noWrap='true' sx={{ color: 'white' }}>
                                     JavaScripts Coffee Co.
                                 </Typography>
                             </IconButton>

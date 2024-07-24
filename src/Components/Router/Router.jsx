@@ -3,7 +3,7 @@ import Home from '../Home'
 import React from 'react'
 import Cart from '../Cart'
 import { Profile } from '../Profile'
-import { Login } from '../Login'
+import Login from '../Login'
 
 
 const Router = () => {
@@ -14,7 +14,7 @@ const Router = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/profile" element={<Profile />} />
-                <Route path='/login' element={<Login />} />
+                <Route path="/login" element={<Login />} />
             </Routes>
 
         </>
