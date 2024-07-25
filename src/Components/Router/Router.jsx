@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import Home from '../Home'
 import React from 'react'
 import Cart from '../Cart'
-import { Profile } from '../Profile'
+import Profile from '../Profile'
 import Login from '../Login'
 
 
