@@ -53,7 +53,10 @@ const Login = () => {
                 localStorage.setItem('token', result.accessToken);
                 navigate('/');
             } else {
+                setIsLoggedIn(false);
+                navigate('/')
                 throw new Error('Failed to login');
+
             }
         } catch (error) {
             setIsLoggedIn(false);
