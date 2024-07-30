@@ -5,16 +5,16 @@ import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { useNavigate } from 'react-router-dom';
-import { Typography } from '@mui/material';
 
-const Login = () => {
+const Register = () => {
     const navigate = useNavigate();
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [loading, setLoading] = useState(false);
     const [initialState, setInitialState] = useState({
         email: '',
-        password: ''
+        password: '',
+        username: '',
+        name: ''
     });
 
     const handleInputChange = (event) => {
@@ -25,39 +25,33 @@ const Login = () => {
         });
     };
 
-    const handleLogin = async (event) => {
+    const handleRegister = async (event) => {
         event.preventDefault();
         setLoading(true);
         try {
-            const response = await fetch('http://localhost:5000/api/login', {
+            const response = await fetch('http://localhost:5000/api/register', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     email: initialState.email,
-                    password: initialState.password
+                    password: initialState.password,
+                    username: initialState.username,
+                    name: initialState.name
                 })
             });
 
             if (!response.ok) {
-                throw new Error('Failed to login');
+                throw new Error('Failed to register');
             }
 
             const result = await response.json();
             console.log(result);
 
-            if (result.accessToken) {
-                setIsLoggedIn(true);
-                setLoading(false);
-                localStorage.setItem('token', result.accessToken);
-                navigate('/');
-            } else {
-                throw new Error('Failed to login');
-            }
+            setLoading(false);
+            navigate('/login'); // Navigate to login page after successful registration
         } catch (error) {
-            setIsLoggedIn(false);
-            localStorage.removeItem('token');
             setLoading(false);
             console.error(error);
         }
@@ -75,16 +69,36 @@ const Login = () => {
                 alignItems="center"
                 justifyContent="center"
                 width={500}
-                height={500}>
+                height={500}
+            >
                 <Grid item xs={8}>
-                    <form onSubmit={handleLogin}>
+                    <form onSubmit={handleRegister}>
                         <Stack spacing={2} direction="column">
                             <TextField
                                 id="outlined-email"
                                 label="Email"
                                 variant="outlined"
                                 name="email"
+                                type="email"
                                 value={initialState.email}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <TextField
+                                id="outlined-username"
+                                label="Username"
+                                variant="outlined"
+                                name="username"
+                                value={initialState.username}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <TextField
+                                id="outlined-name"
+                                label="Name"
+                                variant="outlined"
+                                name="name"
+                                value={initialState.name}
                                 onChange={handleInputChange}
                                 required
                             />
@@ -98,19 +112,15 @@ const Login = () => {
                                 onChange={handleInputChange}
                                 required
                             />
-                            <Button variant="contained" type='submit' disabled={loading}>Login</Button>
-
+                            <Button variant="contained" type='submit' disabled={loading}>
+                                {loading ? 'Registering...' : 'Register'}
+                            </Button>
                         </Stack>
                     </form>
-                    <Typography variant='h6' className='companyNameBar' mt={3} noWrap='true' sx={{ color: 'Black' }}>
-                        Need to Register?
-                    </Typography>
-                    <Button variant='contained' onClick={() => navigate('/register')}>Register</Button>
                 </Grid>
             </Box>
         </Grid>
     );
 };
 
-export default Login;
-
+export default Register;
