@@ -54,7 +54,7 @@ const Login = () => {
                 navigate('/');
             } else {
                 setIsLoggedIn(false);
-                navigate('/')
+                navigate('/login')
                 throw new Error('Failed to login');
 
             }
@@ -62,7 +62,7 @@ const Login = () => {
             setIsLoggedIn(false);
             localStorage.removeItem('token');
             setLoading(false);
-            navigate('/')
+            navigate('/login')
             console.error(error);
         }
     };
