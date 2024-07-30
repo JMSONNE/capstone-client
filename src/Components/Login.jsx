@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { useNavigate } from 'react-router-dom';
 import { Typography } from '@mui/material';
+import { Token } from '@mui/icons-material';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -16,6 +17,8 @@ const Login = () => {
         email: '',
         password: ''
     });
+
+    const handleReload = () => { window.location.reload(); }
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -52,17 +55,19 @@ const Login = () => {
                 setLoading(false);
                 localStorage.setItem('token', result.accessToken);
                 navigate('/');
-            } else {
-                setIsLoggedIn(false);
-                navigate('/login')
+            } else if (result.accessToken == null) {
+
+
                 throw new Error('Failed to login');
+
+
 
             }
         } catch (error) {
+            navigate('/login')
             setIsLoggedIn(false);
             localStorage.removeItem('token');
-            setLoading(false);
-            navigate('/login')
+            handleReload();
             console.error(error);
         }
     };
