@@ -20,6 +20,7 @@ const Navbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
 
 
+
     // set up navigation for logo
     const navigate = useNavigate();
     const handleLogoClick = () => {
