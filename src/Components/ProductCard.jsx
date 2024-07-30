@@ -46,7 +46,7 @@ const ProductCard = () => {
     return (
         <>
             {products.map((product) => (
-                <Card key={product.id} sx={{ margin: 2 }}>
+                <Card key={product.id} sx={{ margin: 2, maxWidth: 375, maxHeight: 400 }}>
                     <CardContent>
                         {/* <CardMedia
                             sx={{ height: 140 }}
