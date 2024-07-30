@@ -48,11 +48,19 @@ const ProductCard = () => {
             {products.map((product) => (
                 <Card key={product.id} sx={{ margin: 2 }}>
                     <CardContent>
+                        {/* <CardMedia
+                            sx={{ height: 140 }}
+                            image={product.image}
+                            title="JavaScripts Coffee"
+                        /> */}
                         <Typography variant="h5" component="div">
                             {product.name}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             {product.description}
+                        </Typography>
+                        <Typography variant="body3" color="text.secondary">
+                            ${product.price}
                         </Typography>
                     </CardContent>
                 </Card>

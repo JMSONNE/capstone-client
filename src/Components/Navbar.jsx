@@ -19,7 +19,11 @@ const Navbar = () => {
     // handles logic for login state
     const [isLoggedIn, setIsLoggedIn] = useState(false)
 
-
+    // Check if the user is logged in by verifying the presence of a token
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        setIsLoggedIn(!!token);
+    }, []);
 
     // set up navigation for logo
     const navigate = useNavigate();
@@ -37,6 +41,8 @@ const Navbar = () => {
         }
 
     }
+
+
 
     return (
         <>
