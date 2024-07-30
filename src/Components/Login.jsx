@@ -59,6 +59,7 @@ const Login = () => {
             setIsLoggedIn(false);
             localStorage.removeItem('token');
             setLoading(false);
+            navigate('/')
             console.error(error);
         }
     };
