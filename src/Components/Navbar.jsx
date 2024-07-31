@@ -22,7 +22,9 @@ const Navbar = () => {
     // Check if the user is logged in by verifying the presence of a token
     useEffect(() => {
         const token = localStorage.getItem('token');
-        setIsLoggedIn(token);
+        if (token) {
+            setIsLoggedIn(true);
+        }
     }, []);
 
     // set up navigation for logo
