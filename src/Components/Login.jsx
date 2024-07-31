@@ -55,6 +55,7 @@ const Login = () => {
                 setLoading(false);
                 localStorage.setItem('token', result.accessToken);
                 navigate('/');
+                window.location.reload()
             } else if (result.accessToken == null) {
 
 

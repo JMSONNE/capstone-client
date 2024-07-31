@@ -7,13 +7,20 @@ const Profile = () => {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        setIsLoggedIn(!!token);
+
+        setIsLoggedIn(!!token)
+
     }, []);
+
+
+
+
 
     const handleLogout = () => {
         localStorage.removeItem('token');
         setIsLoggedIn(false);
         navigate('/login');
+        window.location.reload()
     };
 
     return (
