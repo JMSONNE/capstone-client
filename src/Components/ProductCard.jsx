@@ -10,7 +10,7 @@ const ProductCard = () => {
     useEffect(() => {
         const fetchCards = async () => {
             try {
-                const response = await fetch(`${HEROKU_URL}/products`);
+                const response = await fetch(`${HEROKU_URL}/api/products`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch products');
                 }
