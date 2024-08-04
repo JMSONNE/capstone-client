@@ -33,7 +33,7 @@ const Login = () => {
         event.preventDefault();
         setLoading(true);
         try {
-            const response = await fetch(`${HEROKU_URL}`, {
+            const response = await fetch(`${HEROKU_URL}/login`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
