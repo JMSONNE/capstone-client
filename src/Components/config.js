@@ -1,1 +1,1 @@
-export const HEROKU_URL = import.meta.env.HEROKU_URL;
+export const HEROKU_URL = process.env.HEROKU_URL;
