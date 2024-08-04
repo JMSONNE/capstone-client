@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, Typography, CircularProgress, Box } from '@mui/material';
+import { HEROKU_URL } from './config';
 
 const ProductCard = () => {
     const [products, setProducts] = useState([]);
@@ -9,7 +10,7 @@ const ProductCard = () => {
     useEffect(() => {
         const fetchCards = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/products');
+                const response = await fetch(`${HEROKU_URL}/products`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch products');
                 }

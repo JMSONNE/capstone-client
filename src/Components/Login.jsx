@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import { useNavigate } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import { Token } from '@mui/icons-material';
+import { HEROKU_URL } from './config';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -32,7 +33,7 @@ const Login = () => {
         event.preventDefault();
         setLoading(true);
         try {
-            const response = await fetch('http://localhost:5000/api/login', {
+            const response = await fetch(`${HEROKU_URL}`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

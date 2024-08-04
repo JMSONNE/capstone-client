@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { useNavigate } from 'react-router-dom';
+import { HEROKU_URL } from './config';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ const Register = () => {
         event.preventDefault();
         setLoading(true);
         try {
-            const response = await fetch('http://localhost:5000/api/register', {
+            const response = await fetch(`${HEROKU_URL}/register`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
