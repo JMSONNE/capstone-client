@@ -19,7 +19,7 @@ const Profile = () => {
     const handleLogout = () => {
         localStorage.removeItem('token');
         setIsLoggedIn(false);
-        navigate('/login');
+        navigate('/');
         window.location.reload()
     };
 
