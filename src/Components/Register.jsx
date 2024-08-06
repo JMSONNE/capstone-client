@@ -5,10 +5,12 @@ import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { useNavigate } from 'react-router-dom';
-import { HEROKU_URL } from './config';
+import { HEROKU_URL } from '../config';
 
 const Register = () => {
     const navigate = useNavigate();
+
+
 
     const [loading, setLoading] = useState(false);
     const [initialState, setInitialState] = useState({

@@ -7,10 +7,12 @@ import Box from '@mui/material/Box';
 import { useNavigate } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import { Token } from '@mui/icons-material';
-import { HEROKU_URL } from './config';
+import { HEROKU_URL } from '../config';
 
 const Login = () => {
     const navigate = useNavigate();
+
+
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [loading, setLoading] = useState(false);

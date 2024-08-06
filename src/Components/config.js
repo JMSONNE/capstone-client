@@ -1,1 +1,0 @@
-export const HEROKU_URL = process.env.REACT_APP_HEROKU_URL;

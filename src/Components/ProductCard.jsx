@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, Typography, CircularProgress, Box } from '@mui/material';
-import { HEROKU_URL } from './config';
+import { HEROKU_URL } from '../config';
 
 const ProductCard = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+
 
     useEffect(() => {
         const fetchCards = async () => {

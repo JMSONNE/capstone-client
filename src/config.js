@@ -1,0 +1,1 @@
+export const HEROKU_URL = import.meta.env.VITE_HEROKU_URL;
