@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, Typography, CircularProgress, Box, Button } from '@mui/material';
 import { HEROKU_URL } from '../config';
 
@@ -7,6 +8,7 @@ const ProductCard = () => {
     const [loading, setLoading] = useState(true);
     const [cartContentTrue, setCartContentTrue] = useState(false)
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
 
 
@@ -31,18 +33,27 @@ const ProductCard = () => {
         fetchCards();
     }, []);
 
-    // Handle adding to the cart
-    const handleAddToCart = async () => {
+    // Handle creating a new cart with selected item
+    const handleCreateNewCart = async () => {
         try {
-            const response = await fetch(`${HEROKU_URL}/api/user:id/cart`)
+            const response = await fetch(`${HEROKU_URL}/api/user:id/cart`, {
+                method: "POST",
+                headers: { "content-type": "application/JSON" },
+                body: JSON.stringify({
+                    userId,
+                    user,
+                    cartItems
+                })
+            });
             if (!response.ok) {
                 throw new Error('Failed to add product to cart');
             }
-            const data = await response.json()
+            const data = await response.json();
 
+            navigate('/cart')
 
         } catch (error) {
-
+            console.error(error);
         }
     }
 
@@ -82,7 +93,7 @@ const ProductCard = () => {
                             <Typography variant="body3" color="text.secondary">
                                 ${product.price}
                             </Typography>
-                            <Button variant="contained" color='success'>Add to Cart</Button>
+                            <Button variant="contained" color='success' onClick={handleCreateNewCart}>Add to Cart</Button>
                         </CardContent>
                     </Card>
 
