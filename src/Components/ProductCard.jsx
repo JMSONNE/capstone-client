@@ -31,6 +31,21 @@ const ProductCard = () => {
         fetchCards();
     }, []);
 
+    // Handle adding to the cart
+    const handleAddToCart = async () => {
+        try {
+            const response = await fetch(`${HEROKU_URL}/api/user:id/cart`)
+            if (!response.ok) {
+                throw new Error('Failed to add product to cart');
+            }
+            const data = await response.json()
+
+
+        } catch (error) {
+
+        }
+    }
+
     if (loading) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -49,27 +64,30 @@ const ProductCard = () => {
 
     return (
         <>
-            {products.map((product) => (
-                <Card key={product.id} sx={{ margin: 2, maxWidth: 375, maxHeight: 400 }}>
-                    <CardContent>
-                        {/* <CardMedia
+            <div>
+                {products.map((product) => (
+                    <Card key={product.id} sx={{ margin: 2, maxWidth: 375, maxHeight: 400 }}>
+                        <CardContent>
+                            {/* <CardMedia
                             sx={{ height: 140 }}
                             image={product.image}
                             title="JavaScripts Coffee"
                         /> */}
-                        <Typography variant="h5" component="div">
-                            {product.name}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            {product.description}
-                        </Typography>
-                        <Typography variant="body3" color="text.secondary">
-                            ${product.price}
-                        </Typography>
-                        <Button variant="contained">Add to Cart</Button>
-                    </CardContent>
-                </Card>
-            ))}
+                            <Typography variant="h5" component="div">
+                                {product.name}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                {product.description}
+                            </Typography>
+                            <Typography variant="body3" color="text.secondary">
+                                ${product.price}
+                            </Typography>
+                            <Button variant="contained" color='success'>Add to Cart</Button>
+                        </CardContent>
+                    </Card>
+
+                ))}
+            </div>
         </>
     );
 };
