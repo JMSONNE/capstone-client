@@ -13,7 +13,7 @@ const ProductCard = () => {
     const navigate = useNavigate();
 
     // this is to decode the token from local storage and get the user id from it 
-    const token = localStorage('token')
+    const token = localStorage.getItem('token');
     const decodedToken = jwt.decode(token);
 
     const userIdFromToken = decodedToken.userId;
