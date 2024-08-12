@@ -16,7 +16,7 @@ const ProductCard = () => {
     const token = localStorage('token')
     const decodedToken = jwt.decode(token);
 
-
+    const userIdFromToken = decodedToken.userId;
 
     useEffect(() => {
         const fetchCards = async () => {
@@ -43,7 +43,7 @@ const ProductCard = () => {
     // Handle creating a new cart with selected item
     const handleCreateNewCart = async () => {
         try {
-            const response = await fetch(`${HEROKU_URL}/api/${decodedToken}/cart`, {
+            const response = await fetch(`${HEROKU_URL}/api/${userIdFromToken}/cart`, {
                 method: "POST",
                 headers: { "content-type": "application/JSON" },
                 body: JSON.stringify({
