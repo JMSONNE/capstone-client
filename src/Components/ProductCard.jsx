@@ -5,6 +5,7 @@ import { HEROKU_URL } from '../config';
 
 const ProductCard = () => {
     const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([]);
     const [loading, setLoading] = useState(true);
     const [cartContentTrue, setCartContentTrue] = useState(false)
     const [error, setError] = useState(null);
@@ -49,7 +50,8 @@ const ProductCard = () => {
                 throw new Error('Failed to add product to cart');
             }
             const data = await response.json();
-
+            setCart(data);
+            console.log(cart);
             navigate('/cart')
 
         } catch (error) {
