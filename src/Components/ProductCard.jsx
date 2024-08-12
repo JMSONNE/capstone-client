@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, Typography, CircularProgress, Box, Button } from '@mui/material';
 import { HEROKU_URL } from '../config';
-import jwt from 'jsonwebtoken';
+import jwtDecode from 'jwt-decode'; // Use jwt-decode instead of jsonwebtoken
 
 const ProductCard = () => {
     const [products, setProducts] = useState([]);
@@ -13,18 +13,14 @@ const ProductCard = () => {
 
     // Decode the token and get the user ID
     const token = localStorage.getItem('token');
-    if (!token) {
-        console.error('Token not found');
-    }
-
     let userIdFromToken;
 
     if (token) {
-        const decodedToken = jwt.decode(token);
-        if (decodedToken && decodedToken.userId) {
+        try {
+            const decodedToken = jwtDecode(token);
             userIdFromToken = decodedToken.userId;
-        } else {
-            console.error('Invalid token or user ID not found in token');
+        } catch (e) {
+            console.error('Failed to decode token:', e);
         }
     } else {
         console.error('No token found');
@@ -62,9 +58,9 @@ const ProductCard = () => {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
-                    userId: userIdFromToken, // Ensure this is the correct ID
-                    user: "someUserName", // Replace with actual user data or remove if unnecessary
-                    cartItems: [] // Replace with actual cart items or remove if unnecessary
+                    userId: userIdFromToken,
+                    user: "someUserName", // Replace with actual user data
+                    cartItems: [] // Replace with actual cart items
                 })
             });
             if (!response.ok) {
