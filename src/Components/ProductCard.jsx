@@ -13,6 +13,10 @@ const ProductCard = () => {
 
     // Decode the token and get the user ID
     const token = localStorage.getItem('token');
+    if (!token) {
+        console.error('Token not found');
+    }
+
     let userIdFromToken;
 
     if (token) {
