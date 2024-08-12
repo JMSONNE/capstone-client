@@ -34,30 +34,35 @@ const ProductCard = () => {
         fetchCards();
     }, []);
 
-    // Handle creating a new cart with selected item
-    const handleCreateNewCart = async () => {
-        try {
-            const response = await fetch(`${HEROKU_URL}/api/user:id/cart`, {
-                method: "POST",
-                headers: { "content-type": "application/JSON" },
-                body: JSON.stringify({
-                    userId,
-                    user,
-                    cartItems
-                })
-            });
-            if (!response.ok) {
-                throw new Error('Failed to add product to cart');
-            }
-            const data = await response.json();
-            setCart(data);
-            console.log(cart);
-            navigate('/cart')
+    useEffect(() => {
+        // Handle creating a new cart with selected item
+        const handleCreateNewCart = async () => {
+            try {
+                const response = await fetch(`${HEROKU_URL}/api/user:id/cart`, {
+                    method: "POST",
+                    headers: { "content-type": "application/JSON" },
+                    body: JSON.stringify({
+                        userId,
+                        user,
+                        cartItems
+                    })
+                });
+                if (!response.ok) {
+                    throw new Error('Failed to add product to cart');
+                }
+                const data = await response.json();
+                setCart(data);
+                console.log(cart);
+                navigate('/cart')
 
-        } catch (error) {
-            console.error(error);
-        }
-    }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        handleCreateNewCart();
+    }, [])
+
 
     if (loading) {
         return (
