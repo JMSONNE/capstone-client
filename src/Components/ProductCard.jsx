@@ -8,15 +8,23 @@ const ProductCard = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [cartContentTrue, setCartContentTrue] = useState(false)
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    // this is to decode the token from local storage and get the user id from it 
+    // Decode the token and get the user ID
     const token = localStorage.getItem('token');
-    const decodedToken = jwt.decode(token);
+    let userIdFromToken;
 
-    const userIdFromToken = decodedToken.userId;
+    if (token) {
+        const decodedToken = jwt.decode(token);
+        if (decodedToken && decodedToken.userId) {
+            userIdFromToken = decodedToken.userId;
+        } else {
+            console.error('Invalid token or user ID not found in token');
+        }
+    } else {
+        console.error('No token found');
+    }
 
     useEffect(() => {
         const fetchCards = async () => {
@@ -26,7 +34,6 @@ const ProductCard = () => {
                     throw new Error('Failed to fetch products');
                 }
                 const data = await response.json();
-                console.log('Fetched products:', data);  // Debugging: Check fetched data
                 setProducts(data);
             } catch (error) {
                 console.error('Error fetching products:', error);
@@ -39,17 +46,21 @@ const ProductCard = () => {
         fetchCards();
     }, []);
 
-
     // Handle creating a new cart with selected item
     const handleCreateNewCart = async () => {
+        if (!userIdFromToken) {
+            console.error('Cannot add to cart without a valid user ID');
+            return;
+        }
+
         try {
             const response = await fetch(`${HEROKU_URL}/api/${userIdFromToken}/cart`, {
                 method: "POST",
-                headers: { "content-type": "application/JSON" },
+                headers: { "content-type": "application/json" },
                 body: JSON.stringify({
-                    userId,
-                    user,
-                    cartItems
+                    userId: userIdFromToken, // Ensure this is the correct ID
+                    user: "someUserName", // Replace with actual user data or remove if unnecessary
+                    cartItems: [] // Replace with actual cart items or remove if unnecessary
                 })
             });
             if (!response.ok) {
@@ -57,17 +68,12 @@ const ProductCard = () => {
             }
             const data = await response.json();
             setCart(data);
-            console.log(cart);
-            navigate('/cart')
+            navigate('/cart');
 
         } catch (error) {
             console.error(error);
         }
     };
-
-
-
-
 
     if (loading) {
         return (
@@ -91,11 +97,6 @@ const ProductCard = () => {
                 {products.map((product) => (
                     <Card key={product.id} sx={{ margin: 2, maxWidth: 375, maxHeight: 400 }}>
                         <CardContent>
-                            {/* <CardMedia
-                            sx={{ height: 140 }}
-                            image={product.image}
-                            title="JavaScripts Coffee"
-                        /> */}
                             <Typography variant="h5" component="div">
                                 {product.name}
                             </Typography>
@@ -108,7 +109,6 @@ const ProductCard = () => {
                             <Button variant="contained" color='success' onClick={handleCreateNewCart}>Add to Cart</Button>
                         </CardContent>
                     </Card>
-
                 ))}
             </div>
         </>
@@ -116,4 +116,3 @@ const ProductCard = () => {
 };
 
 export default ProductCard;
-
