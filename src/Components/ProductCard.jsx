@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, Typography, CircularProgress, Box, Button } from '@mui/material';
 import { HEROKU_URL } from '../config';
-import jwtDecode from 'jwt-decode'; // Use jwt-decode instead of jsonwebtoken
+import jwtDecode from 'jwt-decode';
 
 const ProductCard = () => {
     const [products, setProducts] = useState([]);
@@ -18,7 +18,12 @@ const ProductCard = () => {
     if (token) {
         try {
             const decodedToken = jwtDecode(token);
-            userIdFromToken = decodedToken.userId;
+            console.log('Decoded Token:', decodedToken);  // Debugging: Check the structure of the token
+            if (decodedToken && decodedToken.userId) {
+                userIdFromToken = decodedToken.userId;
+            } else {
+                console.error('User ID not found in token');
+            }
         } catch (e) {
             console.error('Failed to decode token:', e);
         }
@@ -34,7 +39,13 @@ const ProductCard = () => {
                     throw new Error('Failed to fetch products');
                 }
                 const data = await response.json();
-                setProducts(data);
+                console.log('Fetched products:', data);  // Debugging: Check the structure of the API response
+
+                if (data && Array.isArray(data)) {
+                    setProducts(data);
+                } else {
+                    console.error('Unexpected data format:', data);
+                }
             } catch (error) {
                 console.error('Error fetching products:', error);
                 setError(error.message);
