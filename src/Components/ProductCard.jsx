@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, Typography, CircularProgress, Box, Button } from '@mui/material';
 import { HEROKU_URL } from '../config';
+const jwt = require('jsonwebtoken');
 
 const ProductCard = () => {
     const [products, setProducts] = useState([]);
@@ -10,6 +11,10 @@ const ProductCard = () => {
     const [cartContentTrue, setCartContentTrue] = useState(false)
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+
+    // this is to decode the token from local storage and get the user id from it 
+    const token = localStorage('token')
+    const decodedToken = jwt.decode(token);
 
 
 
@@ -38,7 +43,7 @@ const ProductCard = () => {
     // Handle creating a new cart with selected item
     const handleCreateNewCart = async () => {
         try {
-            const response = await fetch(`${HEROKU_URL}/api/user:id/cart`, {
+            const response = await fetch(`${HEROKU_URL}/api/${decodedToken}/cart`, {
                 method: "POST",
                 headers: { "content-type": "application/JSON" },
                 body: JSON.stringify({
