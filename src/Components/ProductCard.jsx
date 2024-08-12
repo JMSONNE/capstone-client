@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, Typography, CircularProgress, Box, Button } from '@mui/material';
 import { HEROKU_URL } from '../config';
-
+import jwt from 'jsonwebtoken';
 
 const ProductCard = () => {
     const [products, setProducts] = useState([]);
@@ -10,7 +10,6 @@ const ProductCard = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-    const jwt = require('jsonwebtoken');
 
     // Decode the token and get the user ID
     const token = localStorage.getItem('token');
