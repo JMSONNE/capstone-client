@@ -77,21 +77,22 @@ const ProductCard = () => {
         <>
             <div>
                 {products.map((product) => (
-                    <Card key={product.id} sx={{ margin: 2, maxWidth: 375, maxHeight: 400 }}>
+                    <Card key={product.id} sx={{ margin: 2, padding: 2, maxWidth: '15rem', maxHeight: '35rem', minHeight: '20rem', border: '2px solid green' }}>
                         <CardContent>
                             {/* <CardMedia
                             sx={{ height: 140 }}
                             image={product.image}
                             title="JavaScripts Coffee"
                         /> */}
-                            <Typography variant="h5" component="div">
+                            <Typography variant="h4" component="h4"
+                                sx={{ textTransform: 'uppercase', textAlign: 'center', marginBottom: '1rem', fontWeight: 'bold', padding: '10px', fontSize: '1.7rem' }}>
                                 {product.name}
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
+                            <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'center' }}>
                                 {product.description}
                             </Typography>
-                            <Typography variant="body3" color="text.secondary">
-                                ${product.price} a month
+                            <Typography variant="h6" color="text.secondary">
+                                ${product.price}/Month
                             </Typography>
                             <Button variant="contained" color='success' onClick={handleCreateNewCart}>Add to Cart</Button>
                         </CardContent>

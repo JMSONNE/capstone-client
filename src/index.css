@@ -1,5 +1,4 @@
 * {
-  size: 100%;
   margin: 0;
 }
 
@@ -9,4 +8,12 @@
 
 .companyNameBar {
   margin-top: 2rem;
+}
+
+body {
+  background-image: url(./assets/green-data-technology-background-with-binary-code_53876-119581.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }

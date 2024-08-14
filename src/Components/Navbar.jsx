@@ -72,9 +72,13 @@ const Navbar = () => {
                             <IconButton
                                 size='medium'
                                 edge='start'
+                                disableRipple='true'
                                 onClick={handleLogoProfileClick}
                             >
-                                <Avatar src="/broken-image.jpg" />
+                                {isLoggedIn ? <Avatar src="/broken-image.jpg" /> : <Typography variant='h5'
+                                    sx={{ color: 'white', fontWeight: 'strong' }}>
+                                    LOGIN</Typography>}
+
                             </IconButton>
                             <IconButton
                                 size='medium'
