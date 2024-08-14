@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, Typography, CircularProgress, Box, Button } from '@mui/material';
 import { HEROKU_URL } from '../config';
+import Grid from '@mui/material/Grid';
 
 const ProductCard = () => {
     const [products, setProducts] = useState([]);
@@ -76,29 +77,32 @@ const ProductCard = () => {
     return (
         <>
             <div>
-                {products.map((product) => (
-                    <Card key={product.id} sx={{ margin: 2, padding: 2, maxWidth: '15rem', maxHeight: '35rem', minHeight: '20rem', border: '2px solid green' }}>
-                        <CardContent>
-                            {/* <CardMedia
+                <Grid container spacing={2} justifyContent="space-evenly" alignItems="center">
+                    {products.map((product) => (
+                        <Grid item xs={4}>
+                            <Card key={product.id} sx={{ margin: 2, padding: 2, maxWidth: '15rem', maxHeight: '35rem', minHeight: '20rem', border: '2px solid green' }}>
+                                <CardContent>
+                                    {/* <CardMedia
                             sx={{ height: 140 }}
                             image={product.image}
                             title="JavaScripts Coffee"
                         /> */}
-                            <Typography variant="h4" component="h4"
-                                sx={{ textTransform: 'uppercase', textAlign: 'center', marginBottom: '1rem', fontWeight: 'bold', padding: '10px', fontSize: '1.7rem' }}>
-                                {product.name}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'center' }}>
-                                {product.description}
-                            </Typography>
-                            <Typography variant="h6" color="text.secondary">
-                                ${product.price}/Month
-                            </Typography>
-                            <Button variant="contained" color='success' onClick={handleCreateNewCart}>Add to Cart</Button>
-                        </CardContent>
-                    </Card>
-
-                ))}
+                                    <Typography variant="h4" component="h4"
+                                        sx={{ textTransform: 'uppercase', textAlign: 'center', marginBottom: '1rem', fontWeight: 'bold', padding: '10px', fontSize: '1.7rem' }}>
+                                        {product.name}
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'center' }}>
+                                        {product.description}
+                                    </Typography>
+                                    <Typography variant="h6" color="text.secondary">
+                                        ${product.price}/Month
+                                    </Typography>
+                                    <Button variant="contained" color='success' onClick={handleCreateNewCart}>Add to Cart</Button>
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                    ))}
+                </Grid>
             </div>
         </>
     );
