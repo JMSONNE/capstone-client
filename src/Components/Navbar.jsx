@@ -48,7 +48,7 @@ const Navbar = () => {
 
     return (
         <>
-            <AppBar position='static' color='success' sx={{ mb: 3 }}>
+            <AppBar position='static' color='success'>
                 <Grid container spacing={2} justifyContent="space-between" alignItems="center">
                     <Grid item xs={10}>
                         <Toolbar>
