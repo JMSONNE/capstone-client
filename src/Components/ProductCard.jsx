@@ -91,7 +91,7 @@ const ProductCard = () => {
                                 {product.description}
                             </Typography>
                             <Typography variant="body3" color="text.secondary">
-                                ${product.price}
+                                ${product.price} a month
                             </Typography>
                             <Button variant="contained" color='success' onClick={handleCreateNewCart}>Add to Cart</Button>
                         </CardContent>
