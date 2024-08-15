@@ -77,9 +77,9 @@ const ProductCard = () => {
     return (
         <>
             <div>
-                <Grid container spacing={2} justifyContent="space-evenly" alignItems="center">
+                <Grid container spacing={2} justifyContent="space-between" alignItems="center" sx={{ margin: '2rem' }}>
                     {products.map((product) => (
-                        <Grid item xs={4}>
+                        <Grid item xs={4} sx={{ textAlign: 'center' }}>
                             <Card key={product.id} sx={{ margin: 2, padding: 2, maxWidth: '15rem', maxHeight: '35rem', minHeight: '20rem', border: '2px solid green' }}>
                                 <CardContent>
                                     {/* <CardMedia
