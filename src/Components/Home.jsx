@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import ProductCard from './ProductCard';
 import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
+import { Footer } from './Footer';
 
 const Home = () => {
 
@@ -23,6 +24,7 @@ const Home = () => {
                 </Typography>
             </Box>
             <ProductCard />
+
 
         </>
     )
