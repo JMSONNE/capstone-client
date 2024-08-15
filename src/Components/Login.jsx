@@ -83,7 +83,14 @@ const Login = () => {
             justifyContent="center"
             alignItems="center"
         >
-            <Box component="section" sx={{ p: 3, border: '1px solid grey', mt: 3, borderRadius: 6 }}
+            <Box component="section" sx={{
+                p: 3, mt: 3, borderRadius: 6,
+                backgroundColor: 'white',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                '&:hover': {
+                    boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+                }
+            }}
                 display="flex"
                 alignItems="center"
                 justifyContent="center"

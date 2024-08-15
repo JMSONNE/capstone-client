@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, Typography, CircularProgress, Box, Button } from '@mui/material';
 import { HEROKU_URL } from '../config';
 import Grid from '@mui/material/Grid';
+import GradientCircularProgress from '../assets/GradientCircularProgress';
 
 const ProductCard = () => {
     const [products, setProducts] = useState([]);
@@ -10,6 +11,8 @@ const ProductCard = () => {
     const [cartContentTrue, setCartContentTrue] = useState(false)
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+
+
 
 
 
@@ -61,7 +64,7 @@ const ProductCard = () => {
     if (loading) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                <CircularProgress />
+                <GradientCircularProgress />
             </Box>
         );
     }
@@ -80,7 +83,18 @@ const ProductCard = () => {
                 <Grid container spacing={2} justifyContent="space-between" alignItems="center" sx={{ margin: '2rem' }}>
                     {products.map((product) => (
                         <Grid item xs={4} sx={{ textAlign: 'center' }}>
-                            <Card key={product.id} sx={{ margin: 2, padding: 2, maxWidth: '15rem', maxHeight: '35rem', minHeight: '20rem', border: '2px solid green' }}>
+                            <Card key={product.id} sx={{
+                                margin: 2,
+                                padding: 2,
+                                maxWidth: '15rem',
+                                maxHeight: '35rem',
+                                minHeight: '20rem',
+                                border: '1px solid black',
+                                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                                '&:hover': {
+                                    boxShadow: '0 8px 16px rgba(0, 0, 0, 0.6)',
+                                }
+                            }}>
                                 <CardContent>
                                     {/* <CardMedia
                             sx={{ height: 140 }}

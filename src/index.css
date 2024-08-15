@@ -1,5 +1,11 @@
-* {
-  margin: 0;
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the container takes up at least the full height of the viewport */
+}
+
+main {
+  flex: 1; /* Allow the main content area to expand and push the footer down */
 }
 
 .logo {
@@ -16,4 +22,13 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+}
+footer {
 }
