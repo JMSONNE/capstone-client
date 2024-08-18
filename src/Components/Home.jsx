@@ -12,6 +12,8 @@ const Home = () => {
 
     return (
         <>
+
+            {/* Pick your javascript banner */}
             <Box sx={{
                 width: '100%', height: '10rem', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '2px solid black',
                 backgroundImage: 'url(https://assets.bonappetit.com/photos/5c366551f212512d0e6cefd0/16:9/w_2560%2Cc_limit/Basically-Coffee-0219-03.jpg)',
@@ -23,7 +25,11 @@ const Home = () => {
                     PICK YOUR JAVASCRIPT
                 </Typography>
             </Box>
+
+            {/* Product card list */}
             <ProductCard />
+
+            {/* How it works banner */}
             <Box sx={{
                 width: '100%', height: '10rem', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '2px solid black',
                 backgroundImage: 'url(https://assets.bonappetit.com/photos/5c366551f212512d0e6cefd0/16:9/w_2560%2Cc_limit/Basically-Coffee-0219-03.jpg)',
@@ -33,6 +39,16 @@ const Home = () => {
             }}>
                 <Typography variant="h2" sx={{ fontWeight: 'bold', color: 'white', textShadow: '1px 1px 0px black' }}>
                     HOW IT WORKS
+                </Typography>
+            </Box>
+
+            {/* How it works text */}
+            <Box sx={{
+                width: '90%', height: '35rem', textAlign: 'center', border: '2px solid black', borderRadius: '5px'
+            }}>
+                <Typography variant='p'>
+                    Each tier is a monthly subscription service of monthly curated items hand picked and shipped stright to your
+                    door.
                 </Typography>
             </Box>
 
