@@ -12,7 +12,7 @@ const Home = () => {
 
     return (
         <>
-
+        <section className='home-page'>
             {/* Pick your javascript banner */}
             <Box sx={{
                 width: '100%', height: '10rem', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '2px solid black',
@@ -31,8 +31,8 @@ const Home = () => {
 
             {/* How it works banner */}
             <Box sx={{
-                width: '100%', height: '10rem', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '2px solid black',
-                backgroundImage: 'url(https://assets.bonappetit.com/photos/5c366551f212512d0e6cefd0/16:9/w_2560%2Cc_limit/Basically-Coffee-0219-03.jpg)',
+                width: '100%', height: '30rem', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '2px solid black',
+                backgroundColor: 'gray',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
@@ -44,15 +44,16 @@ const Home = () => {
 
             {/* How it works text */}
             <Box sx={{
-                width: '90%', height: '35rem', textAlign: 'center', border: '2px solid black', borderRadius: '5px'
+                width: '90%', height: '35rem', textAlign: 'center', border: '2px solid black', borderRadius: '5px', margin: '2rem', backgroundColor: 'white',
+                display: 'flex', alignItems: 'center'
             }}>
-                <Typography variant='p'>
-                    Each tier is a monthly subscription service of monthly curated items hand picked and shipped stright to your
+                <Typography variant='p' sx={{fontSize: '48px'}}>
+                    Each tier is a monthly subscription service of monthly curated items hand picked and shipped straight to your
                     door.
                 </Typography>
             </Box>
-
-
+        
+            </section>
         </>
     )
 }
