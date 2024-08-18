@@ -80,7 +80,7 @@ const ProductCard = () => {
     return (
         <>
             <div>
-                <Grid container spacing={2} justifyContent="space-between" alignItems="center" sx={{ margin: '2rem' }}>
+                <Grid container spacing={8}>
                     {products.map((product) => (
                         <Grid item xs={4} sx={{ textAlign: 'center' }}>
                             <Card key={product.id} sx={{
