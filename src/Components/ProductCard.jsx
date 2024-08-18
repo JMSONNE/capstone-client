@@ -53,7 +53,7 @@ const ProductCard = () => {
                 throw new Error('Failed to add product to cart');
             }
             const data = await response.json();
-
+            console.log('Successfully created cart.')
             navigate('/cart')
 
         } catch (error) {
