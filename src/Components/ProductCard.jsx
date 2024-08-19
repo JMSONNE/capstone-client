@@ -13,7 +13,13 @@ const ProductCard = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
 
+    // checks if the user is logged in and sets state
+    useEffect(() => {
+        const token = localStorage.getItem('token');
 
+        setIsLoggedIn(!!token)
+
+    }, []);
 
 
     useEffect(() => {
@@ -59,8 +65,8 @@ const ProductCard = () => {
                 navigate('/cart')
             }
             else {
-                alert('You need to have an active account to purchase any JavaScript subscriptions!')
                 navigate('/register')
+                alert('You need to have an active account to purchase any JavaScript subscriptions!')
             }
         } catch (error) {
             console.error(error);
