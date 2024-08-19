@@ -42,7 +42,7 @@ const ProductCard = () => {
         try {
 
             if (isLoggedIn) {
-                const response = await fetch(`${HEROKU_URL}/api/${userId}/cart`, {
+                const response = await fetch(`${HEROKU_URL}/api/:userid/cart`, {
                     method: "POST",
                     headers: { "content-type": "application/JSON" },
                     body: JSON.stringify({
