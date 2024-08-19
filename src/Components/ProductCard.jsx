@@ -65,7 +65,7 @@ const ProductCard = () => {
                 navigate('/cart')
             }
             else {
-                navigate('/register')
+                navigate('/login')
                 alert('You need to have an active account to purchase any JavaScript subscriptions!')
             }
         } catch (error) {
