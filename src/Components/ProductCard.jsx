@@ -10,10 +10,21 @@ const ProductCard = () => {
     const [loading, setLoading] = useState(true);
     const [cartContentTrue, setCartContentTrue] = useState(false)
     const [error, setError] = useState(null);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
 
+    // checks if the user is logged in and sets state
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+
+        setIsLoggedIn(!!token)
+
+    }, []);
 
 
+    const token = localStorage.getItem('token');
+    const decodedToken = jwtDecode(token);
+    const userId = decodedToken.id;
 
 
     useEffect(() => {
@@ -38,9 +49,11 @@ const ProductCard = () => {
     }, []);
 
     // Handle creating a new cart with selected item
-    const handleCreateNewCart = async () => {
+    const handleAddToCart = async () => {
         try {
-            const response = await fetch(`${HEROKU_URL}/api/user:id/cart`, {
+
+            if(isLoggedIn) {
+            const response = await fetch(`${HEROKU_URL}/api/${userId}/cart`, {
                 method: "POST",
                 headers: { "content-type": "application/JSON" },
                 body: JSON.stringify({
@@ -53,9 +66,11 @@ const ProductCard = () => {
                 throw new Error('Failed to add product to cart');
             }
             const data = await response.json();
-
-            navigate('/cart')
-
+            console.log('Successfully created cart.')
+            navigate('/cart')}
+            else {
+                navigate('/register')
+            }
         } catch (error) {
             console.error(error);
         }
@@ -80,7 +95,7 @@ const ProductCard = () => {
     return (
         <>
             <div>
-                <Grid container spacing={2} justifyContent="space-between" alignItems="center" sx={{ margin: '2rem' }}>
+                <Grid container spacing={8}>
                     {products.map((product) => (
                         <Grid item xs={4} sx={{ textAlign: 'center' }}>
                             <Card key={product.id} sx={{
@@ -111,7 +126,7 @@ const ProductCard = () => {
                                     <Typography variant="h6" color="text.secondary">
                                         ${product.price}/Month
                                     </Typography>
-                                    <Button variant="contained" color='success' onClick={handleCreateNewCart}>Add to Cart</Button>
+                                    <Button variant="contained" color='success' onClick={handleAddToCart}>Add to Cart</Button>
                                 </CardContent>
                             </Card>
                         </Grid>
