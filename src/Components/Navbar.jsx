@@ -43,12 +43,15 @@ const Navbar = () => {
         }
 
     }
+    const handleLogoRegisterClick = () => {
+        navigate('/register')
+    }
 
 
 
     return (
         <>
-            <AppBar position='static' color='success'>
+            <AppBar position='sticky' color='success'>
                 <Grid container spacing={2} justifyContent="space-between" alignItems="center">
                     <Grid item xs={10}>
                         <Toolbar>
@@ -80,6 +83,17 @@ const Navbar = () => {
                                     LOGIN</Typography>}
 
                             </IconButton>
+                            {isLoggedIn ? null : <IconButton
+                                size='medium'
+                                edge='start'
+                                disableRipple='true'
+                                onClick={handleLogoRegisterClick}
+                            >
+                                <Typography variant='h5'
+                                    sx={{ color: 'white', fontWeight: 'strong' }}>
+                                    REGISTER</Typography>
+
+                            </IconButton>}
                             <IconButton
                                 size='medium'
                                 edge='end'
