@@ -1,6 +1,6 @@
 # FULLSTACK E-COMMERCE APP FRONT-END
 
 
-LINK TO DEPLYED SITE:
+LINK TO DEPLOYED SITE:
 
 https://javascripts-coffee.vercel.app/
