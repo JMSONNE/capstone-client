@@ -4,6 +4,7 @@ import { Card, CardContent, Typography, CircularProgress, Box, Button } from '@m
 import { HEROKU_URL } from '../config';
 import Grid from '@mui/material/Grid';
 import GradientCircularProgress from '../assets/GradientCircularProgress';
+import  {jwtDecode}  from 'jwt-decode';
 
 const ProductCard = () => {
     const [products, setProducts] = useState([]);
@@ -15,15 +16,15 @@ const ProductCard = () => {
 
     // checks if the user is logged in and sets state
     useEffect(() => {
-        const token = localStorage.getItem('token');
+        var token = localStorage.getItem('token');
 
         setIsLoggedIn(!!token)
 
     }, []);
 
 
-    const token = localStorage.getItem('token');
-    const decodedToken = jwtDecode(token);
+    
+    const decodedToken = jwtDecode(toString(token));
     const userId = decodedToken.id;
 
 
