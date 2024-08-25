@@ -47,7 +47,7 @@ const Home = () => {
                     width: '90%', height: '30rem', textAlign: 'center', border: '2px solid black', borderRadius: '5px', margin: '2rem', backgroundColor: 'white',
                     display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>
-                    <Typography variant='p' sx={{ fontSize: '36px' }}>
+                    <Typography variant='p' sx={{ fontSize: '36px', fontFamily: 'roboto' }}>
                         Each tier is a monthly subscription service of monthly curated items hand picked and shipped straight to your
                         door.
                     </Typography>

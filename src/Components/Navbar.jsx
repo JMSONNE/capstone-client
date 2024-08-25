@@ -51,9 +51,9 @@ const Navbar = () => {
 
     return (
         <>
-            <AppBar position='sticky' color='success'>
-                <Grid container spacing={2} justifyContent="space-between" alignItems="center">
-                    <Grid item xs={10}>
+            <AppBar position='sticky' color='success' sx={{width: '100%'}}>
+                <Grid container spacing={2} justifyContent="space-between" alignItems="center" sx={{width: '100%'}}>
+                    <Grid item xs={9}>
                         <Toolbar>
                             <IconButton
                                 size='large'
@@ -70,7 +70,7 @@ const Navbar = () => {
                             </IconButton>
                         </Toolbar>
                     </Grid>
-                    <Grid item xs={2} alignItems="center">
+                    <Grid item xs={3} alignItems="center">
                         <Toolbar sx={{ justifyContent: "space-evenly" }}>
                             <IconButton
                                 size='medium'
