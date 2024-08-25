@@ -95,7 +95,7 @@ const ProductCard = () => {
                 <Grid container spacing={8}>
                     {products.map((product) => (
                         <Grid item xs={4} sx={{ textAlign: 'center' }}>
-                            <Card key={product.id} sx={{
+                            <Card className='productCard' key={product.id} sx={{
                                 margin: 2,
                                 padding: 2,
                                 maxWidth: '15rem',
