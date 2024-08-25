@@ -17,11 +17,11 @@ main {
 }
 
 body {
-  background-image: url(./assets/cool-background.png);
+  background-image: url(./assets/peakpx.jpg);
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-repeat: repeat;
+  background-attachment: scroll;
   height: 100%;
   margin: 0;
 }
@@ -60,4 +60,14 @@ footer {
   background-image: url(./assets/navbarbackground.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.bodyText {
+  background-image: url(./assets/navbarbackground.jpg) ;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: static;
+  color: white;
+  text-shadow: 1px 1px 0px black;
 }

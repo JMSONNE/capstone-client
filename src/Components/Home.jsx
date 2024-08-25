@@ -34,9 +34,8 @@ const Home = () => {
                 </Box>
 
                 {/* How it works text */}
-                <Box sx={{
-                    width: '90%', height: '30rem', textAlign: 'center', border: '2px solid black', borderRadius: '5px', margin: '2rem', backgroundColor: 'white',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center'
+                <Box className='bodyText' sx={{
+                    width: '90%', height: '30rem', textAlign: 'center', border: '2px solid black', borderRadius: '5px', margin: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>
                     <Typography variant='p' sx={{ fontSize: '36px', fontFamily: 'roboto' }}>
                         Each tier is a monthly subscription service of monthly curated items hand picked and shipped straight to your
