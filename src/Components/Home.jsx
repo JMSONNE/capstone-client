@@ -27,7 +27,7 @@ const Home = () => {
 
                 {/* How it works banner */}
                 <Box className='homeBanner' sx={{
-                    width: '100%', height: '30rem', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '2px solid black'}}>
+                    width: '100%', height: '23rem', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '2px solid black'}}>
                     <Typography variant="h2" sx={{ fontWeight: 'bold', color: 'white', textShadow: '1px 1px 0px black' }}>
                         HOW IT WORKS
                     </Typography>

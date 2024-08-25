@@ -32,7 +32,13 @@ html {
 }
 
 footer {
-  /* placeholder */
+  background-image: url(./assets/3731902884_ea9ee00ccf_k.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-top: 2px solid black;
+  font-family: 'roboto';
 }
 
 .home-page {
