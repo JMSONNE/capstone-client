@@ -5,7 +5,7 @@
 }
 
 /* Animations */
-@keyframes fadeIn {
+@keyframes fadeIn-moveIn {
   from {
     opacity: 0;
     transform: translateX(25%);
@@ -14,11 +14,24 @@
     opacity: 1;
     transform: translateX(0);
   }
+  
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
+html{
+  size: 100%;
+}
 
 main {
   flex: 1; /* Allow the main content area to expand and push the footer down */
+  width: 100%;
 }
 
 .logo {
@@ -40,7 +53,8 @@ body {
 }
 
 html {
-  height: 100%;
+  width: 100%;
+  height: auto;
   margin: 0;
 }
 
@@ -67,12 +81,16 @@ footer {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  width: 100%;
+  height: auto;
 }
 
 .navbar {
   background-image: url(./assets/navbarbackground.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  width:fit-content;
+  height: auto;
 }
 
 .bodyText {
@@ -85,6 +103,16 @@ footer {
   text-shadow: 1px 1px 0px black;
 }
 
+.toolbar {
+  width: max-content;
+}
+
+@media (min-width: 1000px){
+  .navbar{
+
+  }
+}
+
 .productCard {
-  animation: fadeIn 1s;
+  animation: fadeIn-moveIn 1s;
 }

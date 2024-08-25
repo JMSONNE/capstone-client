@@ -51,8 +51,8 @@ const Navbar = () => {
 
     return (
         <>
-            <AppBar position='sticky' className='navbar' sx={{width: '100%'}}>
-                <Grid container spacing={2} justifyContent="space-between" alignItems="center" sx={{width: '100%'}}>
+            <AppBar position='sticky' className='navbar'>
+                <Grid container spacing={2} justifyContent="space-between" alignItems="center">
                     <Grid item xs={9}>
                         <Toolbar>
                             <IconButton
@@ -71,7 +71,7 @@ const Navbar = () => {
                         </Toolbar>
                     </Grid>
                     <Grid item xs={3} alignItems="center">
-                        <Toolbar sx={{ justifyContent: "space-evenly" }}>
+                        <Toolbar className='toolbar' sx={{ justifyContent: "space-evenly" }}>
                             <IconButton
                                 size='medium'
                                 edge='start'
@@ -79,7 +79,7 @@ const Navbar = () => {
                                 onClick={handleLogoProfileClick}
                             >
                                 {isLoggedIn ? <Avatar src="/broken-image.jpg" /> : <Typography variant='h5'
-                                    sx={{ color: 'white', fontWeight: 'strong' }}>
+                                    sx={{ color: 'white', fontWeight: 'strong', size: '40%' }}>
                                     LOGIN</Typography>}
 
                             </IconButton>
@@ -90,7 +90,7 @@ const Navbar = () => {
                                 onClick={handleLogoRegisterClick}
                             >
                                 <Typography variant='h5'
-                                    sx={{ color: 'white', fontWeight: 'strong' }}>
+                                    sx={{ color: 'white', fontWeight: 'strong', size: '40%' }}>
                                     REGISTER</Typography>
 
                             </IconButton>}
