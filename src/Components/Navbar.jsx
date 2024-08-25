@@ -51,7 +51,7 @@ const Navbar = () => {
 
     return (
         <>
-            <AppBar position='sticky' color='success' sx={{width: '100%'}}>
+            <AppBar position='sticky' className='navbar' sx={{width: '100%'}}>
                 <Grid container spacing={2} justifyContent="space-between" alignItems="center" sx={{width: '100%'}}>
                     <Grid item xs={9}>
                         <Toolbar>

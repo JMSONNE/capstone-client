@@ -41,3 +41,17 @@ footer {
   align-items: center;
   
 }
+
+.homeBanner {
+  background-image: url(./assets/3731902884_ea9ee00ccf_k.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.navbar {
+  background-image: url(./assets/navbarbackground.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
