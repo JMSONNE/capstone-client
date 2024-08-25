@@ -14,10 +14,8 @@ const Home = () => {
         <>
             <section className='home-page'>
                 {/* Pick your javascript banner */}
-                <Box className='homeBanner' sx={{
-                    width: '100%', height: '10rem', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '2px solid black'
-                }}>
-                    <Typography variant="h2" sx={{ fontWeight: 'bold', color: 'white', textShadow: '1px 1px 0px black' }}>
+                <Box className='homeBanner'>
+                    <Typography className='bodyText' variant="h2" sx={{fontWeight: 'bold'}}>
                         PICK YOUR JAVASCRIPT
                     </Typography>
                 </Box>
@@ -26,15 +24,14 @@ const Home = () => {
                 <ProductCard />
 
                 {/* How it works banner */}
-                <Box className='homeBanner' sx={{
-                    width: '100%', height: '23rem', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '2px solid black'}}>
-                    <Typography variant="h2" sx={{ fontWeight: 'bold', color: 'white', textShadow: '1px 1px 0px black' }}>
+                <Box className='homeBanner'>
+                    <Typography className='bodyText' variant="h2" sx={{fontWeight: 'bold'}}>
                         HOW IT WORKS
                     </Typography>
                 </Box>
 
                 {/* How it works text */}
-                <Box className='bodyText' sx={{
+                <Box className='homeBanner' sx={{
                     width: '90%', height: '30rem', textAlign: 'center', border: '2px solid black', borderRadius: '5px', margin: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>
                     <Typography variant='p' sx={{ fontSize: '36px', fontFamily: 'roboto' }}>

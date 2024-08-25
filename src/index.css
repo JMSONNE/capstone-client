@@ -83,6 +83,8 @@ footer {
   background-attachment: fixed;
   width: 100%;
   height: auto;
+  text-align: center;
+  border: 2px solid black;
 }
 
 .navbar {
@@ -94,22 +96,27 @@ footer {
 }
 
 .bodyText {
-  background-image: url(./assets/navbarbackground.jpg) ;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: static;
   color: white;
   text-shadow: 1px 1px 0px black;
+  font-size: x-large;
+  text-align: center;
+}
+
+.productGrid {
+
 }
 
 .toolbar {
   width: max-content;
 }
 
-@media (min-width: 1000px){
+@media (min-width: 1024px){
   .navbar{
 
+  }
+  .productGrid{
+    display: flex;
+    align-items: center;
   }
 }
 

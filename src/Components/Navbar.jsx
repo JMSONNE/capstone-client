@@ -53,7 +53,7 @@ const Navbar = () => {
         <>
             <AppBar position='sticky' className='navbar'>
                 <Grid container spacing={2} justifyContent="space-between" alignItems="center">
-                    <Grid item xs={9}>
+                    <Grid item xs={12} sm={12} md={6} lg={6}>
                         <Toolbar>
                             <IconButton
                                 size='large'
@@ -70,7 +70,7 @@ const Navbar = () => {
                             </IconButton>
                         </Toolbar>
                     </Grid>
-                    <Grid item xs={3} alignItems="center">
+                    <Grid item xs={0} sm={0} md={6} lg={6} alignItems="center">
                         <Toolbar className='toolbar' sx={{ justifyContent: "space-evenly" }}>
                             <IconButton
                                 size='medium'
