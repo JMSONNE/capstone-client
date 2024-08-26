@@ -14,7 +14,6 @@
     opacity: 1;
     transform: translateX(0);
   }
-  
 }
 @keyframes fadeIn {
   from {
@@ -25,7 +24,7 @@
   }
 }
 
-html{
+html {
   size: 100%;
 }
 
@@ -65,14 +64,13 @@ footer {
   background-repeat: no-repeat;
   background-attachment: fixed;
   border-top: 2px solid black;
-  font-family: 'roboto';
+  font-family: "roboto";
 }
 
 .home-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
 .homeBanner {
@@ -82,16 +80,19 @@ footer {
   background-repeat: no-repeat;
   background-attachment: fixed;
   width: 100%;
-  height: auto;
+  height: 13rem;
   text-align: center;
   border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar {
   background-image: url(./assets/navbarbackground.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  width:fit-content;
+  width: fit-content;
   height: auto;
 }
 
@@ -102,19 +103,22 @@ footer {
   text-align: center;
 }
 
-.productGrid {
-
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .toolbar {
   width: max-content;
+  justify-content: end;
+  align-items: end;
 }
 
-@media (min-width: 1024px){
-  .navbar{
-
+@media (min-width: 1024px) {
+  .navbar {
   }
-  .productGrid{
+  .productGrid {
     display: flex;
     align-items: center;
   }

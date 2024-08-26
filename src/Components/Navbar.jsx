@@ -70,8 +70,8 @@ const Navbar = () => {
                             </IconButton>
                         </Toolbar>
                     </Grid>
-                    <Grid item xs={0} sm={0} md={6} lg={6} alignItems="center">
-                        <Toolbar className='toolbar' sx={{ justifyContent: "space-evenly" }}>
+                    <Grid item xs={0} sm={0} md={6} lg={6}>
+                        <Toolbar sx={{ justifyContent: 'end', alignContent: 'end' }}>
                             <IconButton
                                 size='medium'
                                 edge='start'
