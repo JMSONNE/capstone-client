@@ -46,11 +46,6 @@ const Login = () => {
                 })
             });
 
-            if (!response.ok) {
-                navigate('/login')
-                throw new Error('Failed to login');
-
-            }
 
             const result = await response.json();
             console.log(result);
