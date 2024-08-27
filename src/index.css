@@ -42,11 +42,7 @@ main {
 }
 
 body {
-  background-image: url(./assets/peakpx.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat;
-  background-attachment: scroll;
+  background-image: linear-gradient(315deg, #1e1d1b 0%, #8f6b24 74%);
   height: 100%;
   margin: 0;
 }

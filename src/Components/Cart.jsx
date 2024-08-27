@@ -69,7 +69,7 @@ const Cart = () => {
     }
 
     return (
-        { isLoggedIn?<Box sx = {{ padding: 4 } } >
+        <Box sx={{ padding: 4 }}>
             <Typography variant="h4" align="center" sx={{ marginBottom: 4 }}>
                 Your Cart
             </Typography>
@@ -115,7 +115,7 @@ const Cart = () => {
                     Checkout
                 </Button>
             </Box>
-        </Box > : <Typography>nothing found </Typography>}
+        </Box>
     );
 };
 
