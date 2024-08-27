@@ -128,3 +128,7 @@ footer {
 .productCard {
   animation: fadeIn-moveIn 1s;
 }
+
+.cartBox {
+  background-image: linear-gradient(315deg, #1e1d1b 0%, #8f6b24 40%);
+}

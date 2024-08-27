@@ -54,7 +54,7 @@ const Cart = () => {
 
     if (!cart) {
         return (
-            <Box className='homeBanner' sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+            <Box className='cartBox' sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
                 <Typography>No items in cart.</Typography>
             </Box>
         );
@@ -89,9 +89,6 @@ const Cart = () => {
                                 </Typography>
                                 <Typography variant="body1">
                                     Price: ${item.product.price}
-                                </Typography>
-                                <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
-                                    Total: ${(item.product.price * item.quantity).toFixed(2)}
                                 </Typography>
                                 <Button
                                     variant="contained"
