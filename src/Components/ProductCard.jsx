@@ -57,12 +57,13 @@ const ProductCard = () => {
     const handleAddToCart = async (productId) => {
         try {
             if (isLoggedIn) {
-                const response = await fetch(`${HEROKU_URL}/api/${userId}/cart`, {
+                const response = await fetch(`${HEROKU_URL}/api/cartcreate`, {  // Use the correct backend route
                     method: "POST",
                     headers: { "content-type": "application/json" },
                     body: JSON.stringify({
-                        productId: productId,  // Pass the selected product ID
-                        quantity: 1,           // Default quantity of 1 (you can adjust this)
+                        userId: userId,         // Pass the logged-in user's ID
+                        productId: productId,   // Pass the selected product ID
+                        quantity: 1,            // Default quantity of 1 (you can adjust this)
                     }),
                 });
 
@@ -81,6 +82,7 @@ const ProductCard = () => {
             console.error('Error adding to cart:', error);
         }
     };
+
 
 
     if (loading) {
