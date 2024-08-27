@@ -56,14 +56,6 @@ const Login = () => {
                 localStorage.setItem('token', result.accessToken);
                 navigate('/');
                 window.location.reload()
-            } else if (result.accessToken == null) {
-
-                navigate('/login')
-                throw new Error('Failed to login');
-
-
-
-
             }
         } catch (error) {
             navigate('/login')
