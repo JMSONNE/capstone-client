@@ -99,6 +99,7 @@ footer {
 .bodyText {
   color: white;
   text-shadow: 1px 1px 0px black;
+  font-family: roboto;
   font-size: x-large;
   text-align: center;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

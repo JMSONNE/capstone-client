@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, Typography, CircularProgress, Box, Button } from '@mui/material';
 import { HEROKU_URL } from '../config';
 import Grid from '@mui/material/Grid';
+import { jwtDecode } from "jwt-decode";
 import GradientCircularProgress from '../assets/GradientCircularProgress';
 
 const ProductCard = () => {
@@ -11,6 +12,8 @@ const ProductCard = () => {
     const [cartContentTrue, setCartContentTrue] = useState(false)
     const [error, setError] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [userId, setUserId] = useState(0);
+    const [user, setUser] = useState();
     const navigate = useNavigate();
 
     // checks if the user is logged in and sets state
@@ -21,7 +24,15 @@ const ProductCard = () => {
 
     }, []);
 
+    // Decodes token from local storage and sets the user id
+    useEffect(() => {
+        const token = localStorage.getItem('token').toString()
+        const decodedToken = jwtDecode(token);
+        setUserId(decodedToken.id);
+        setUser(decodedToken.user);
+    }, [])
 
+    // Fetches products from database
     useEffect(() => {
         const fetchCards = async () => {
             try {
@@ -43,35 +54,34 @@ const ProductCard = () => {
         fetchCards();
     }, []);
 
-    // Handle creating a new cart with selected item
-    const handleAddToCart = async () => {
+    const handleAddToCart = async (productId) => {
         try {
-
             if (isLoggedIn) {
-                const response = await fetch(`${HEROKU_URL}/api/:userid/cart`, {
+                const response = await fetch(`${HEROKU_URL}/api/${userId}/cart`, {
                     method: "POST",
-                    headers: { "content-type": "application/JSON" },
+                    headers: { "content-type": "application/json" },
                     body: JSON.stringify({
-                        userId,
-                        user,
-                        cartItems
-                    })
+                        productId: productId,  // Pass the selected product ID
+                        quantity: 1,           // Default quantity of 1 (you can adjust this)
+                    }),
                 });
+
                 if (!response.ok) {
                     throw new Error('Failed to add product to cart');
                 }
+
                 const data = await response.json();
-                console.log('Successfully created cart.')
-                navigate('/cart')
-            }
-            else {
-                navigate('/login')
-                alert('You need to have an active account to purchase any JavaScript subscriptions!')
+                console.log('Successfully added product to cart:', data);
+                navigate('/cart');
+            } else {
+                navigate('/login');
+                alert('You need to have an active account to purchase any JavaScript subscriptions!');
             }
         } catch (error) {
-            console.error(error);
+            console.error('Error adding to cart:', error);
         }
-    }
+    };
+
 
     if (loading) {
         return (
@@ -123,7 +133,7 @@ const ProductCard = () => {
                                     <Typography variant="h6" color="text.secondary">
                                         ${product.price}/Month
                                     </Typography>
-                                    <Button variant="contained" color='success' onClick={handleAddToCart}>Add to Cart</Button>
+                                    <Button variant="contained" color='success' onClick={() => handleAddToCart(product.id)}>Add to Cart</Button>
                                 </CardContent>
                             </Card>
                         </Grid>

@@ -15,7 +15,7 @@ const Home = () => {
             <section className='home-page'>
                 {/* Pick your javascript banner */}
                 <Box className='homeBanner'>
-                    <Typography className='bodyText' variant="h2" sx={{fontWeight: 'bold'}}>
+                    <Typography className='bodyText' variant="h2" sx={{ fontWeight: 'bold' }}>
                         PICK YOUR JAVASCRIPT
                     </Typography>
                 </Box>
@@ -25,7 +25,7 @@ const Home = () => {
 
                 {/* How it works banner */}
                 <Box className='homeBanner'>
-                    <Typography className='bodyText' variant="h2" sx={{fontWeight: 'bold'}}>
+                    <Typography className='bodyText' variant="h2" sx={{ fontWeight: 'bold' }}>
                         HOW IT WORKS
                     </Typography>
                 </Box>
@@ -34,8 +34,8 @@ const Home = () => {
                 <Box className='homeBanner' sx={{
                     width: '90%', height: '30rem', textAlign: 'center', border: '2px solid black', borderRadius: '5px', margin: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>
-                    <Typography variant='p' sx={{ fontSize: '36px', fontFamily: 'roboto' }}>
-                        Each tier is a monthly subscription service of monthly curated items hand picked and shipped straight to your
+                    <Typography className='bodyText' variant='p' sx={{ fontSize: '36px' }}>
+                        Each tier is a monthly subscription service of curated items hand picked and shipped straight to your
                         door.
                     </Typography>
                 </Box>
