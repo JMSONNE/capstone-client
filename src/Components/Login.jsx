@@ -47,9 +47,9 @@ const Login = () => {
             });
 
             if (!response.ok) {
-                navigate('/')
                 alert("Invalid login credentials, please try again.")
                 navigate('/login')
+                window.location.reload()
             }
 
             const result = await response.json();
