@@ -47,7 +47,7 @@ const Login = () => {
             });
 
             if (!response.ok) {
-                window.location.reload()
+                navigate('/')
                 alert("Invalid login credentials, please try again.")
             }
 
