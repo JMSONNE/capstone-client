@@ -47,7 +47,9 @@ const Login = () => {
             });
 
             if (!response.ok) {
+                navigate('/login')
                 throw new Error('Failed to login');
+
             }
 
             const result = await response.json();
@@ -61,8 +63,9 @@ const Login = () => {
                 window.location.reload()
             } else if (result.accessToken == null) {
 
-
+                navigate('/login')
                 throw new Error('Failed to login');
+
 
 
 
