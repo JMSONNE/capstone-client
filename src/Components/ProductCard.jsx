@@ -26,10 +26,15 @@ const ProductCard = () => {
 
     // Decodes token from local storage and sets the user id
     useEffect(() => {
-        const token = localStorage.getItem('token')
-        const decodedToken = jwtDecode(token);
-        setUserId(decodedToken.id);
-        setUser(decodedToken.user);
+        let token = localStorage.getItem('token')
+        if (token == null) {
+            setUserId(null)
+        } else {
+            const decodedToken = jwtDecode(token);
+            setUserId(decodedToken.id);
+            setUser(decodedToken.user);
+        }
+
     }, [])
 
     // Fetches products from database
