@@ -46,6 +46,9 @@ const Login = () => {
                 })
             });
 
+            if (!response.ok) {
+                alert("Invalid login credentials, please try again.")
+            }
 
             const result = await response.json();
             console.log(result);
