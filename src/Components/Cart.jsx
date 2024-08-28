@@ -13,18 +13,13 @@ const Cart = () => {
     const [user, setUser] = useState(null);
     const [error, setError] = useState(null);
 
+    const navigate = useNavigate();
+
     // Check if the user is logged in by verifying the presence of a token
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
             setIsLoggedIn(true);
-        }
-    }, []);
-
-    // Decode token from local storage and set the user id
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
             const decodedToken = jwtDecode(token);
             setUserId(decodedToken.id);
             setUser(decodedToken.user);
@@ -60,6 +55,25 @@ const Cart = () => {
         );
     }
 
+    // Function to remove items (cart)
+    const handleDeleteItem = async () => {
+        try {
+            const response = await fetch(`${HEROKU_URL}/api/user/${userId}/cart`, {
+                method: "DELETE"
+            })
+            const data = await response.json();
+
+            setCart(data);
+            navigate('/')
+        } catch (error) {
+            console.log(error)
+            setError(error.message)
+        }
+
+    }
+
+
+
     if (error) {
         return (
             <Typography variant="h6" color="error" align="center">
@@ -94,7 +108,7 @@ const Cart = () => {
                                     variant="contained"
                                     color="secondary"
                                     sx={{ marginTop: 2 }}
-                                    onClick={() => console.log(`Remove item ${item.id} from cart`)}
+                                    onClick={handleDeleteItem}
                                 >
                                     Remove
                                 </Button>
