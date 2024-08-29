@@ -98,9 +98,6 @@ footer {
   font-family: roboto;
   font-size: x-large;
   text-align: center;
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.bodyText:hover {
   text-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
 }
 
