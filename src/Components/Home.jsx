@@ -36,7 +36,7 @@ const Home = () => {
                 }}>
                     <Typography className='bodyText' variant='p' sx={{ fontSize: '36px' }}>
                         Each tier is a monthly subscription service of curated items hand picked and shipped straight to your
-                        door.
+                        door. Just create an account, log in, and get a new JavaScript to your door every month!
                     </Typography>
                 </Box>
 
