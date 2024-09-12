@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Stack from '@mui/material/Stack';
-import Grid from '@mui/material/Grid';
-import { Card, CardContent, Typography, CircularProgress, Box, Button } from '@mui/material';
+import { Stack, Grid, Card, CardContent, Typography, CircularProgress, Box, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode'; // Make sure jwtDecode is imported
+import { jwtDecode } from 'jwt-decode'; // Corrected import statement
 import { HEROKU_URL } from '../config';
 
 const Cart = () => {
@@ -56,23 +54,19 @@ const Cart = () => {
     }
 
     // Function to remove items (cart)
-    const handleDeleteItem = async () => {
+    const handleDeleteItem = async (itemId) => {
         try {
-            const response = await fetch(`${HEROKU_URL}/api/user/${userId}/cart`, {
-                method: "DELETE"
-            })
+            const response = await fetch(`${HEROKU_URL}/api/user/${userId}/cart/${itemId}`, {
+                method: 'DELETE',
+            });
             const data = await response.json();
-
             setCart(data);
-            navigate('/')
+            navigate('/');
         } catch (error) {
-            console.log(error)
-            setError(error.message)
+            console.log(error);
+            setError(error.message);
         }
-
-    }
-
-
+    };
 
     if (error) {
         return (
@@ -83,14 +77,14 @@ const Cart = () => {
     }
 
     return (
-        <Box sx={{ padding: 4 }}>
+        <Box className='cartItemBox'>
             <Typography variant="h4" align="center" sx={{ marginBottom: 4 }}>
                 Your Cart
             </Typography>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} className='cartGrid'>
                 {cart.cartItems.map((item) => (
                     <Grid item xs={12} sm={6} md={4} key={item.id}>
-                        <Card sx={{ padding: 2 }}>
+                        <Card sx={{ padding: 2, backgroundColor: 'lightgray' }}>
                             <CardContent>
                                 <Typography variant="h6">
                                     {item.product.name}
@@ -106,9 +100,9 @@ const Cart = () => {
                                 </Typography>
                                 <Button
                                     variant="contained"
-                                    color="secondary"
+                                    color="primary"
                                     sx={{ marginTop: 2 }}
-                                    onClick={handleDeleteItem}
+                                    onClick={() => handleDeleteItem(item.id)}
                                 >
                                     Remove
                                 </Button>
