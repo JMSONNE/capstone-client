@@ -114,8 +114,6 @@ footer {
 }
 
 @media (min-width: 1024px) {
-  .navbar {
-  }
   .productGrid {
     display: flex;
     align-items: center;
