@@ -47,8 +47,8 @@ const Cart = () => {
 
     if (!cart) {
         return (
-            <Box className='cartBox' sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                <Typography>No items in cart.</Typography>
+            <Box className='cartItemBox' sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: 'white' }}>
+                <Typography sx={{ fontSize: '3rem' }}>No items in cart.</Typography>
             </Box>
         );
     }

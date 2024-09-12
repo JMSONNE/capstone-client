@@ -10,11 +10,10 @@ export const Footer = () => {
                 width: '100%',
                 height: '10rem',
                 display: 'flex',
-                justifyContent: 'center',  // Center horizontally
-                alignItems: 'flex-end',     // Align at the bottom
-                paddingBottom: '1rem'       // Optional padding for spacing
+                justifyContent: 'center',
+                alignItems: 'flex-end',
             }}>
-                <Typography variant='body1'>Copyright 2024</Typography>
+                <Typography variant='body1'>©Copyright 2024</Typography>
             </Box>
         </footer>
     );
