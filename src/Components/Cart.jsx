@@ -56,7 +56,7 @@ const Cart = () => {
     // Function to remove items (cart)
     const handleDeleteItem = async (itemId) => {
         try {
-            const response = await fetch(`${HEROKU_URL}/api/user/${userId}/cart/${itemId}`, {
+            const response = await fetch(`${HEROKU_URL}/api/user/${userId}/cart`, {
                 method: 'DELETE',
             });
             const data = await response.json();
